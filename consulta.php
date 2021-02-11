@@ -13,6 +13,7 @@
 </head>
 <body>
 <div class="container">
+<br>
   <div class="table-responsive">
 					<table id="informacionCotizacion" class="display table" style="width:100%">
 				        <thead>
@@ -44,8 +45,9 @@
 </div>
               
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
@@ -86,11 +88,10 @@ function infoMovimientos(){
 					}
 			
 				informacion.innerHTML=imprimir;
-				$('#example22s').DataTable({
-                                
+				$('#informacionCotizacion').DataTable({
                     dom: 'Bfrtip',
                     buttons: [
-                        'copy', 'csv', 'excel', 'pdf', 'print'
+                        'copy', 'csv', 'excel', 'print'
                     ]
                 });
 				//  informacionInversion();
