@@ -23,7 +23,8 @@
 								<th>fecha</th>
 								<th>Usuario</th>
 								<th>Contacto</th>
-								<th>Estado</th>
+								<th>Contactado</th>
+								<th>Marcar como contactado</th>
 				            </tr>
 				        </thead>
 				        <tbody id="datosMovimientos">
@@ -37,6 +38,7 @@
 								<th>Usuario</th>
 								<th>Contacto</th>
 								<th>Contactado</th>
+								<th>Marcar como contactado</th>
 				            </tr>
 				        </tfoot>
 				    </table>
@@ -78,12 +80,13 @@ function infoMovimientos(){
 					for(let valor of response){
 							imprimir +=`
 								<tr>
-									<td><label>${valor.created_at}</label></td>
+									<td><label>${valor.created_at}</label><input type="hidden" id="id_carrito" value="${valor.id_carrito}"/></td>
 									<td>${valor.carrito}</td>
 									<td>${valor.bandera}</td>
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
 									<td>${valor.contactado}</td>
+									<td><button id="contactadoMark" class="btn btn-warning">Marcar como Contactado</button></td>
 								</tr> `;
 					
 					}
@@ -100,6 +103,43 @@ function infoMovimientos(){
 	    }
 	});
 }
+
+function registrarDatos(){
+
+
+var id= document.getElementById('id_carrito').value;
+var contactado ='Si';
+
+  var datosCliente = {
+		id:id,
+		contactado:contactado
+	}
+	var parametros = JSON.stringify(datosCliente);
+$.ajax({
+	url: 'https://cvmas-budget.herokuapp.com/RegistroContactado',
+	type: 'post',
+	headers: {
+	  'Accept':'application/json',
+	  'Content-Type':'application/json'
+	},
+	data : parametros,
+	contentType: "application/json",
+	dataType: "json",
+	cache: false,
+	processData: false,
+	success: function(response) {
+	  console.log(response);
+	  if(response.success == true){
+		  var texto = 'Bienvenido Inicia sesion para continuar';
+		  location.reload();
+	  }else{
+		alert('Esto no debio pasar');
+	  }
+	}
+  });
+
+}
+
 </script>
 </body>
 </html>
