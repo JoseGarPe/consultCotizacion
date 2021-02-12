@@ -146,6 +146,7 @@ $.ajax({
 	  console.log(response);
 	  if(response.success == true){
 		  var texto = 'Bienvenido Inicia sesion para continuar';
+		  alert("Registro actualizado");
 		  location.reload();
 	  }else{
 		alert('Esto no debio pasar');
