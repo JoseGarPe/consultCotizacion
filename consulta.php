@@ -15,6 +15,7 @@
 <div class="container-fluid">
 <br>
   <div class="table-responsive">
+	<a href="consulta.php" class="btn btn-success">Actualizar Información</a>
 					<table id="informacionCotizacion" class="display table" style="width:100%">
 				        <thead>
 				            <tr>
