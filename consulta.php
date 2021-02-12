@@ -97,6 +97,7 @@ function infoMovimientos(){
 								<tr class="alert-success">
 									<td><label>${valor.created_at}</label><input type="hidden" id="id_carrito" value="${valor.id_carrito}"/></td>
 									<td>${valor.carrito}</td>
+									<td>${valor.comentario}</td>
 									<td>${valor.bandera}</td>
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
