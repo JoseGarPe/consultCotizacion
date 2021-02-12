@@ -20,7 +20,7 @@
 				            <tr>
 				                <th>Fecha</th>
 								<th>Informacion</th>
-								<th>fecha</th>
+								<th>Solicito desde:</th>
 								<th>Usuario</th>
 								<th>Contacto</th>
 								<th>Contactado</th>
@@ -78,6 +78,7 @@ function infoMovimientos(){
 	    processData: false,
 	    success: function(response) {
 					for(let valor of response){
+						if (valor.contactado=='No') {
 							imprimir +=`
 								<tr>
 									<td><label>${valor.created_at}</label><input type="hidden" id="id_carrito" value="${valor.id_carrito}"/></td>
@@ -85,9 +86,23 @@ function infoMovimientos(){
 									<td>${valor.bandera}</td>
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
-									<td>${valor.contactado}</td>
-									<td><button id="contactadoMark" class="btn btn-warning">Marcar como Contactado</button></td>
-								</tr> `;
+									<td>${valor.contactado}</td>`;
+									imprimir+=`<td><button id="contactadoMark" class="btn btn-warning" onclick="registrarDatos()">Marcar como Contactado</button></td>`;
+									imprimir +=`</tr> `;
+						}else{
+							imprimir +=`
+								<tr class="alert-success">
+									<td><label>${valor.created_at}</label><input type="hidden" id="id_carrito" value="${valor.id_carrito}"/></td>
+									<td>${valor.carrito}</td>
+									<td>${valor.bandera}</td>
+									<td>${valor.nombre}</td>
+									<td>${valor.telefono} / ${valor.correo}</td>
+									<td>${valor.contactado}</td>`;
+									imprimir+=`<td></td>`;
+									imprimir +=`</tr> `;
+									}
+
+						   
 					
 					}
 			
