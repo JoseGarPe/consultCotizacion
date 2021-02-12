@@ -20,6 +20,7 @@
 				            <tr>
 				                <th>Fecha</th>
 								<th>Informacion</th>
+								<th>Comentario</th>
 								<th>Solicito desde:</th>
 								<th>Usuario</th>
 								<th>Contacto</th>
@@ -34,6 +35,7 @@
 				            <tr>
 				                <th>Fecha</th>
 								<th>Informacion</th>
+								<th>Comentario</th>
 								<th>Solicito desde</th>
 								<th>Usuario</th>
 								<th>Contacto</th>
@@ -83,6 +85,7 @@ function infoMovimientos(){
 								<tr>
 									<td><label>${valor.created_at}</label><input type="hidden" id="id_carrito" value="${valor.id_carrito}"/></td>
 									<td>${valor.carrito}</td>
+									<td>${valor.comentario}</td>
 									<td>${valor.bandera}</td>
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
