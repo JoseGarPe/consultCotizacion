@@ -91,7 +91,7 @@ function infoMovimientos(){
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
 									<td>${valor.contactado}</td>`;
-									imprimir+=`<td><button id="contactadoMark" class="btn btn-warning" onclick="registrarDatos()">Marcar como Contactado</button></td>`;
+									imprimir+=`<td><button id="contactadoMark" class="btn btn-warning" id_carrito="${valor.id_carrito}" onclick="registrarDatos()">Marcar como Contactado</button></td>`;
 									imprimir +=`</tr> `;
 						}else{
 							imprimir +=`
@@ -127,7 +127,7 @@ function infoMovimientos(){
 function registrarDatos(){
 
 
-var id= document.getElementById('id_carrito').value;
+var id= $("#contactadoMark").attr("id_carrito");
 var contactado ='Si';
 
   var datosCliente = {
