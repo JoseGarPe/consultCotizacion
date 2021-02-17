@@ -146,8 +146,6 @@ $.ajax({
 	data : parametros,
 	contentType: "application/json",
 	dataType: "json",
-	cache: false,
-	processData: false,
 	success: function(response) {
 	  console.log(response);
 	  if(response.success == true){
