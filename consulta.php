@@ -135,6 +135,7 @@ var contactado ='Si';
 		contactado:contactado
 	}
 	var parametros = JSON.stringify(datosCliente);
+	console.log(parametros);
 $.ajax({
 	url: 'https://cvmas-budget.herokuapp.com/RegistroContactado',
 	type: 'post',
