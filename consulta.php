@@ -163,7 +163,7 @@ $(document).ready(function(){
 		infoMovimientos();
 		//----------------------------------------------------------------------//
 		$(document).on('click', '#contactadoMark', function(){  
-          var employee_id = $(this).attr("id_carrito");
+          var id = $(this).attr("id_carrito");
 				console.log(id);
 				var contactado ='Si';
 
