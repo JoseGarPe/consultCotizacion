@@ -60,9 +60,7 @@
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 <script>
-	$(document).ready(function(){
-		infoMovimientos();
-	});
+
 
 function infoMovimientos(){
     var informacion = document.getElementById('datosMovimientos');
@@ -91,7 +89,7 @@ function infoMovimientos(){
 									<td>${valor.nombre}</td>
 									<td>${valor.telefono} / ${valor.correo}</td>
 									<td>${valor.contactado}</td>`;
-									imprimir+=`<td><button id="contactadoMark" class="btn btn-warning" id_carrito="${valor.id_carrito}" onclick="registrarDatos()">Marcar como Contactado</button></td>`;
+									imprimir+=`<td><button id="contactadoMark" class="btn btn-warning" id_carrito="${valor.id_carrito}" >Marcar como Contactado</button></td>`;
 									imprimir +=`</tr> `;
 						}else{
 							imprimir +=`
@@ -123,7 +121,7 @@ function infoMovimientos(){
 	    }
 	});
 }
-
+//-------------------------------------------------------------------------------------------//
 function registrarDatos(){
 
 
@@ -160,7 +158,47 @@ $.ajax({
   });
 
 }
+//--------------------------------------------------------------------------------------------------------//
+$(document).ready(function(){
+		infoMovimientos();
+		//----------------------------------------------------------------------//
+		$(document).on('click', '#contactadoMark', function(){  
+          var employee_id = $(this).attr("id_carrito");
+				console.log(id);
+				var contactado ='Si';
 
+				var datosCliente = {
+						id:id,
+						contactado:contactado
+					}
+					var parametros = JSON.stringify(datosCliente);
+					console.log(parametros);
+				$.ajax({
+					url: 'https://cvmas-budget.herokuapp.com/RegistroContactado',
+					type: 'POST',
+					headers: {
+					'Accept':'application/json',
+					'Content-Type':'application/json'
+					},
+					data : parametros,
+					contentType: "application/json",
+					dataType: "json",
+					success: function(response) {
+					console.log(response);
+					if(response.success == true){
+						var texto = 'Bienvenido Inicia sesion para continuar';
+						alert("Registro actualizado");
+						location.reload();
+					}else{
+						alert('Esto no debio pasar');
+					}
+					}
+				});
+          
+    	  });  
+		//----------------------------------------------------------------------//
+
+	});
 </script>
 </body>
 </html>
