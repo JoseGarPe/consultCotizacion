@@ -128,6 +128,7 @@ function registrarDatos(){
 
 
 var id= $("#contactadoMark").attr("id_carrito");
+console.log(id);
 var contactado ='Si';
 
   var datosCliente = {
